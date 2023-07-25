@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,14 +37,13 @@
           </div>
      </div>
      <div id="dropArea"></div>
-
+     <!-- 
      <button id="hideBtn">숨기기</button>
-     <button id="showBtn">보이기</button>
+     <button id="showBtn">보이기</button> -->
 
 
 
      <main>
-
 
           <div class="sidemenu">
                <ul class="sideblock">
@@ -104,8 +104,8 @@
           <!-- 배경 숨쉬는 Lavalamp -->
           <div class="main_lava_bg">
                <!-- 잠깐 멈춤 -->
-               <!-- <div class="lamp">
-               <div class="lava">
+               <div class="lamp">
+                    <!-- <div class="lava">
                     <div class="blob"></div>
                     <div class="blob"></div>
                     <div class="blob"></div>
@@ -116,8 +116,8 @@
                     <div class="blob"></div>
                     <div class="blob top"></div>
                     <div class="blob bottom"></div>
+               </div> -->
                </div>
-          </div> -->
                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <defs>
                          <filter id="goo">
@@ -150,43 +150,50 @@
 
 
                     <li class="cam_jiu"><img class="cam_back_img" src="img/지유_profile.jpg">
-                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/다미_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐰지유</p>
                     </li>
 
                     <li class="cam_sua"><img class="cam_back_img" src="img/수아_profile.jpg">
-                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/다미_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐥수아</p>
                     </li>
 
                     <li class="cam_siyeon"><img class="cam_back_img" src="img/시연_profile.jpg">
-                         <div class="inner_img"><img src="img/시연_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/시연_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐺시연</p>
                     </li>
 
                     <li class="cam_handong"><img class="cam_back_img" src="img/한동_profile.jpg">
-                         <div class="inner_img"><img src="img/한동_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/한동_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐱한동</p>
                     </li>
 
                     <li class="cam_yoohyeon"><img class="cam_back_img" src="img/유현_profile.jpg">
-                         <div class="inner_img"><img src="img/유현_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/유현_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐶유현</p>
                     </li>
 
                     <li class="cam_dami"><img class="cam_back_img" src="img/다미_profile.jpg">
-                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/다미_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🐼다미</p>
                     </li>
 
                     <li class="cam_gahyeon"><img class="cam_back_img" src="img/가현_profile.jpg">
-                         <div class="inner_img"><img src="img/가현_profile.jpg"></div>
+                         <div class="inner_img"><img src="img/123.jpg"></div>
+                         <!-- <div class="inner_img"><img src="img/가현_profile.jpg"></div> -->
                          <div class="mute_mic"><img src="img/mic_mute.png"></div>
                          <p class="mem_cam_name">🦊가현</p>
                     </li>
@@ -194,30 +201,35 @@
                </ul>
           </div>
 
-
-
-
      </main>
 
+     <div class="drag_box">
+          <div class="box_arrow_btn"><img class="box_arrow" src="img/left_arrow.png"></div>
+          <ul class="drag_box_inner_btn">
+               <li class="box_clock"><img class="active" src="img/clock.png"></li>
+               <li class="box_playlist"><img class="" src="img/playlist.png"></li>
+               <li class="box_timer"><img class="" src="img/timer.png"></li>
+          </ul>
+     </div>
+     <!-- 
+     drag_box_inner_btn 안의 li를 클릭시, 클릭한 li의 자식인 img에 .active가 붙어 있을시
+     .active를 없애고 img에 .active가 붙어있지 않을시 .active를 붙힘
+     
+     
+
+     box_clock 안의 img 에 .active가 붙어있을시 .draggable_clock를 block하고 
+     box_clock 안의 img 에 .active가 없을시 .draggable_clock를 none함
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+ -->
 
 
      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+     <!-- jquery-ui-touch-punch -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+     </script>
 
      <script>
           // |￣￣￣￣￣￣￣￣|
@@ -364,17 +376,12 @@
 
 
 
-               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
-               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //  내 캠 (캠 권한 필요) 
+               //  해봤는데 모바일캠도 됨 ㄷㄷ < 카톡브라우저에서 열면
+               //  줌처럼 배경이미지나 블러효과도 줄수있음; 
+               // 놋북은 회사에 있어서 못했음< 후에 노트북으로 확인필요
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
                //    \ (•◡•) /
 
                navigator.mediaDevices.getUserMedia({
@@ -389,14 +396,18 @@
                     });
 
 
-               // |￣￣￣￣￣￣￣￣￣￣￣￣￣|
-               //     위젯 드레그 (시계)
-               // |＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     위젯 드레그 (시계) : 사용시, 제이쿼리 드레그 관련 스크립트 필요
+               //     jquery-ui-touch-punch
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
                //    \ (•◡•) /
+
 
                $(document).ready(function () {
                     // 드래그 가능한 요소 생성
-                    $(".draggable_clock").draggable();
+                    $(".draggable_clock").draggable({
+                         touchAction: "auto" // 터치 이벤트 활성화
+                    });
 
                     // 드롭 영역 설정
                     $("#dropArea").droppable({
@@ -407,17 +418,90 @@
                     });
 
                     // 숨김 버튼 클릭 시 요소 숨기기
-                    $("#hideBtn").click(function () {
-                         $(".draggable_clock").hide();
-                    });
+                    /*  $("#hideBtn").click(function () {
+                          $(".draggable_clock").hide();
+                     }); */
                     // 보이기 버튼 클릭 시 요소 보이기
-                    $("#showBtn").click(function () {
-                         $(".draggable_clock").show();
-                    });
+                    /*  $("#showBtn").click(function () {
+                          $(".draggable_clock").show();
+                     }); */
                });
 
 
 
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     drag_box (서랍메뉴 꺼내기)
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               //    \ (•◡•) /
+
+
+               $(document).ready(function () {
+                    // 클릭 상태를 추적하기 위한 변수
+                    let isClicked = false;
+
+                    $(".box_arrow_btn").click(function () {
+                         // 클릭 상태에 따라 동작 결정
+                         if (!isClicked) {
+                              $(".drag_box").css("right", "-50px");
+                              $(".box_arrow_btn").css("transform", "scaleX(-1)");
+                         } else {
+                              $(".drag_box").css("right", "-315px");
+                              $(".box_arrow_btn").css("transform", "scaleX(1)");
+                         }
+
+                         // 클릭 상태 업데이트
+                         isClicked = !isClicked;
+                    });
+               });
+
+
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     drag_box : 시계위젯
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               //    \ (•◡•) /
+
+
+
+               /* ----------------------------
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               <할일>
+               시계 위젯 버튼 눌리는거 까진 되는데,
+               눌러서 active 붙히고 땔때 시계위젯이 none, block이 안됨
+               -------------------------------- */
+     $(document).ready(function () {
+          // drag_box_inner_btn의 li 클릭 이벤트 처리
+          $(".drag_box_inner_btn li").click(function () {
+               let img = $(this).find("img");
+               if (img.hasClass("active")) {
+                    img.removeClass("active");
+               } else {
+                    img.addClass("active");
+               }
+          });
+
+          // box_clock의 img에 .active가 있을 때 .draggable_clock를 block으로 변경
+          // .active가 없을 때 .draggable_clock를 none으로 변경
+          $(".box_clock img").each(function () {
+               if ($(this).hasClass("active")) {
+                    $(".clock_widget").show();
+               } else {
+                    $(".clock_widget").hide();
+               }
+          });
+     });
 
 
           });
