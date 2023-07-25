@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Study With Dreamcatcher</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          referrerpolicy="no-referrer" />
+     <!-- 폰트어썸 아이콘-->
+     <link href="css/font.css" rel="stylesheet" />
+     <link href="css/common.css" rel="stylesheet" />
+     <link href="css/index.css" rel="stylesheet" />
+     <link href="css/reset.css" rel="stylesheet" />
+     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+</head>
+
+<body>
+     <header>
+          <div class="header_in">
+               <p class="title">Insomnia's Room</p>
+          </div>
+          <div class="fullpage" id="fullscreenBtn"><i class="fas fa-expand"></i></div>
+     </header>
+
+
+
+     <!-- 시계 드레그 -->
+
+     <div class="draggable_clock">
+          <i class="fas far fa-grip-lines"></i>
+          <!-- <i class="fas fa-bars"></i> -->
+          <div class="clock_widget" id="clock">
+          </div>
+     </div>
+     <div id="dropArea"></div>
+
+     <button id="hideBtn">숨기기</button>
+     <button id="showBtn">보이기</button>
+
+
+
+     <main>
+
+
+          <div class="sidemenu">
+               <ul class="sideblock">
+                    <li class="side_all">
+                         <div class="side_mem_img">
+                              <img src="img/DC_logo.png">
+                         </div>
+                         <!-- 선택된 상태면 speak_act 붙힘-->
+                         <div class="speak_act">
+                              <i class="fas fa-microphone fa-xs"></i>
+                         </div>
+                         <p class="side_mem_name">드림캐쳐</p>
+                    </li>
+                    <li class="side_jiu">
+                         <div class="side_mem_img">
+                              <img src="img/지유_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">지유</p>
+                    </li>
+                    <li class="side_sua">
+                         <div class="side_mem_img">
+                              <img src="img/수아_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">수아</p>
+                    </li>
+                    <li class="side_siyeon">
+                         <div class="side_mem_img">
+                              <img src="img/시연_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">시연</p>
+                    </li>
+                    <li class="side_handong">
+                         <div class="side_mem_img">
+                              <img src="img/한동_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">한동</p>
+                    </li>
+                    <li class="side_yoohyeon">
+                         <div class="side_mem_img">
+                              <img src="img/유현_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">유현</p>
+                    </li>
+                    <li class="side_dami">
+                         <div class="side_mem_img">
+                              <img src="img/다미_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">다미</p>
+                    </li>
+                    <li class="side_gahyeon">
+                         <div class="side_mem_img">
+                              <img src="img/가현_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">가현</p>
+                    </li>
+               </ul>
+          </div>
+          <!-- 배경 숨쉬는 Lavalamp -->
+          <div class="main_lava_bg">
+               <!-- 잠깐 멈춤 -->
+               <!-- <div class="lamp">
+               <div class="lava">
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob top"></div>
+                    <div class="blob bottom"></div>
+               </div>
+          </div> -->
+               <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                         <filter id="goo">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                              <feColorMatrix in="blur" mode="matrix"
+                                   values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                              <feBlend in="SourceGraphic" in2="goo" />
+                         </filter>
+                    </defs>
+               </svg>
+          </div>
+          <!-- 배경 숨쉬는 Lavalamp END -->
+
+          <!-- 화상 CAM -->
+          <div class="cam_wrap">
+               <ul class="cam_all">
+
+                    <!-- 여기에 내 웹캠코드 넣으면 같이 공부하는느낌ㅇㅇ -->
+                    <li class="cam_me"><span class="my_pic">ME</span>
+                         <video autoplay="true" id="videoElement"></video>
+                         <div class="mute_mic">
+
+                              <img src="img/mic_mute.png">
+
+                         </div>
+
+                         <!-- 내 캠 허용시 -->
+
+                    </li>
+
+
+                    <li class="cam_jiu"><img class="cam_back_img" src="img/지유_profile.jpg">
+                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐰지유</p>
+                    </li>
+
+                    <li class="cam_sua"><img class="cam_back_img" src="img/수아_profile.jpg">
+                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐥수아</p>
+                    </li>
+
+                    <li class="cam_siyeon"><img class="cam_back_img" src="img/시연_profile.jpg">
+                         <div class="inner_img"><img src="img/시연_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐺시연</p>
+                    </li>
+
+                    <li class="cam_handong"><img class="cam_back_img" src="img/한동_profile.jpg">
+                         <div class="inner_img"><img src="img/한동_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐱한동</p>
+                    </li>
+
+                    <li class="cam_yoohyeon"><img class="cam_back_img" src="img/유현_profile.jpg">
+                         <div class="inner_img"><img src="img/유현_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐶유현</p>
+                    </li>
+
+                    <li class="cam_dami"><img class="cam_back_img" src="img/다미_profile.jpg">
+                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐼다미</p>
+                    </li>
+
+                    <li class="cam_gahyeon"><img class="cam_back_img" src="img/가현_profile.jpg">
+                         <div class="inner_img"><img src="img/가현_profile.jpg"></div>
+                         <div class="mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🦊가현</p>
+                    </li>
+
+               </ul>
+          </div>
+
+
+
+
+     </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+
+     <script>
+          // |￣￣￣￣￣￣￣￣|
+          //     헤더고정
+          // |＿＿＿＿＿＿＿＿|
+          //    \ (•◡•) /
+
+          $(function () {
+               var headerTop = $('header').offset().top;
+               $(window).scroll(function () {
+                    var scrollTop = $(window).scrollTop();
+                    if (headerTop < scrollTop) {
+                         $('header').addClass('fixed').stop();
+                    } else {
+                         $('header').removeClass('fixed');
+                    }
+               });
+          })
+
+          // |￣￣￣￣￣￣￣￣|
+          //     전체화면
+          // |＿＿＿＿＿＿＿＿|
+          //    \ (•◡•) /
+
+          $(document).ready(function () {
+               var isFullscreen = false;
+
+               $("#fullscreenBtn").click(function () {
+                    var element = document.documentElement;
+
+                    if (!isFullscreen) {
+                         if (element.requestFullscreen) {
+                              element.requestFullscreen();
+                         } else if (element.mozRequestFullScreen) {
+                              element.mozRequestFullScreen();
+                         } else if (element.webkitRequestFullscreen) {
+                              element.webkitRequestFullscreen();
+                         } else if (element.msRequestFullscreen) {
+                              element.msRequestFullscreen();
+                         }
+
+                         isFullscreen = true;
+                         $(this).html('<i class="fas fa-compress"></i>');
+                    } else {
+                         if (document.exitFullscreen) {
+                              document.exitFullscreen();
+                         } else if (document.mozCancelFullScreen) {
+                              document.mozCancelFullScreen();
+                         } else if (document.webkitExitFullscreen) {
+                              document.webkitExitFullscreen();
+                         } else if (document.msExitFullscreen) {
+                              document.msExitFullscreen();
+                         }
+
+                         isFullscreen = false;
+                         $(this).html('<i class="fas fa-expand"></i>');
+                    }
+               });
+          });
+
+
+
+          // |￣￣￣￣￣￣￣￣|
+          //     위치시계
+          // |＿＿＿＿＿＿＿＿|
+          //    \ (•◡•) /
+
+
+          $(document).ready(function () {
+               function showClock() {
+                    var now = new Date();
+                    var hours = now.getHours();
+                    var minutes = now.getMinutes();
+                    var seconds = now.getSeconds();
+
+                    var ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // 0시일 경우 12시로 표시
+
+                    var timeString = formatTwoDigits(hours) + ":" + formatTwoDigits(minutes) + ":" +
+                         formatTwoDigits(seconds);
+                    timeString += " " + ampm;
+
+                    $("#clock").text(timeString);
+               }
+
+               function formatTwoDigits(number) {
+                    return (number < 10 ? '0' : '') + number;
+               }
+
+               function getLocation() {
+                    if (navigator.geolocation) {
+                         navigator.geolocation.getCurrentPosition(showPosition);
+                    } else {
+                         alert("이 브라우저에서는 위치 기능을 지원하지 않습니다.");
+                    }
+               }
+
+               function showPosition(position) {
+                    // 위치 정보를 가져와서 사용할 수 있습니다.
+                    // 이 예제에서는 사용하지 않고 현재 시간만 표시합니다.
+                    showClock();
+               }
+
+               setInterval(showClock, 1000); // 1초마다 시간 갱신
+
+               getLocation();
+
+
+
+
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     Pointer cursor (다시체크)
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               //    \ (•◡•) /
+
+               // 커서 원본 이미지 없는 컴퓨터에서 실험필요
+               // 캠 커서 변경
+               $(document).ready(function () {
+                    // Cam에 hover 했을 때 커서 이미지 변경
+                    $("li").hover(
+                         function () {
+                              $("html").css("cursor",
+                                   "url('img/pointer.png'), pointer"
+                              ); /* pointer 상태일 때 이미지 설정 */
+                         },
+                         function () {
+                              $("html").css("cursor",
+                                   "url('img/default.png'), default"
+                              ); /* default 상태일 때 이미지 설정 */
+                         }
+                    );
+                    // Aside 멤버에 hover 했을 때 커서 이미지 변경
+                    $(".sideblock li ").hover(
+                         function () {
+                              $(".sideblock .side_mem_img ").css("cursor",
+                                   "url('img/pointer.png'), pointer"
+                              ); /* pointer 상태일 때 이미지 설정 */
+                         }
+                    );
+               });
+
+
+
+
+
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               //     내 캠 (캠 권한 필요) < 후에 노트북으로 확인필요
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               //    \ (•◡•) /
+
+               navigator.mediaDevices.getUserMedia({
+                         video: true
+                    })
+                    .then(function (stream) {
+                         var videoElement = document.getElementById("videoElement");
+                         videoElement.srcObject = stream;
+                    })
+                    .catch(function (error) {
+                         console.log("카메라 사용 권한을 얻지 못했습니다.", error);
+                    });
+
+
+               // |￣￣￣￣￣￣￣￣￣￣￣￣￣|
+               //     위젯 드레그 (시계)
+               // |＿＿＿＿＿＿＿＿＿＿＿＿＿|
+               //    \ (•◡•) /
+
+               $(document).ready(function () {
+                    // 드래그 가능한 요소 생성
+                    $(".draggable_clock").draggable();
+
+                    // 드롭 영역 설정
+                    $("#dropArea").droppable({
+                         drop: function (event, ui) {
+                              // 드롭된 요소를 영역 안으로 이동
+                              ui.draggable.appendTo(this);
+                         }
+                    });
+
+                    // 숨김 버튼 클릭 시 요소 숨기기
+                    $("#hideBtn").click(function () {
+                         $(".draggable_clock").hide();
+                    });
+                    // 보이기 버튼 클릭 시 요소 보이기
+                    $("#showBtn").click(function () {
+                         $(".draggable_clock").show();
+                    });
+               });
+
+
+
+
+
+          });
+     </script>
+
+
+
+
+
+</body>
+
+</html>
