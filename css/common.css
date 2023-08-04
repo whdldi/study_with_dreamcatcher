@@ -49,9 +49,32 @@ html {
 .clock_widget {
     display: inline-block;
     font-size: 4rem;
-    color: #fff;
     /* font-family: ; */
+    background-color: #1a0197;
 
+    /* width: calc(100% - 50px); */
+    /* margin: 0 40px; */
+
+}
+
+.clock_widget div {
+    display: inline-block;
+    color: #fff;
+    font-size: 4rem;
+}
+
+/* 시분초 */
+.time_hms {
+    position: absolute;
+    left: 10%;
+    top: 0;
+}
+
+/* 오후오전 */
+.time_pmam {
+    position: absolute;
+    right: 10%;
+    top: 0;
 }
 
 #hideBtn {
@@ -226,13 +249,12 @@ main {
 
 .side_mem_img:hover {
     box-shadow: 0px 0px 10px #8749F2;
-    cursor: pointer;
 }
 
 .side_mem_img img {
     width: 100%;
     object-position: center center;
-    object-fit: h;
+    object-fit: cover;
     height: 100%;
 }
 
@@ -576,7 +598,7 @@ body {
     width: 390px;
     height: 80px;
     line-height: 80px;
-    background-color: #00000075;
+    background-color: #000000db;
     border-radius: 100px;
     transition: right 0.5s ease;
     /* 부드러운 모션을 위한 트랜지션 속성 */
@@ -596,7 +618,6 @@ body {
     position: absolute;
     top: 4px;
     left: 3px;
-    cursor: pointer;
 }
 
 /* 서랍 버튼 */
@@ -632,7 +653,6 @@ body {
 .drag_box_inner_btn li {
     width: 40px;
     padding: 7px;
-    cursor: pointer;
 }
 
 .drag_box_inner_btn li img {
@@ -641,6 +661,7 @@ body {
 }
 
 /* 클릭된 위젯버튼에 active 추가 (광선,보라색) */
-.active {
+
+.widget_active {
     filter: drop-shadow(0px 0px 5px #3D00B2) contrast(1) !important;
 }
