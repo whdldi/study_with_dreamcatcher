@@ -19,12 +19,12 @@
 
 .cam_all {
     display: grid;
-
     /* 반응형으로 만들때 이부분 수정 */
     grid-template-columns: repeat(4, 1fr);
     /* 4개의 열을 균등한 너비로 설정 */
     gap: 70px 40px;
     /* 박스들 사이의 간격 설정 */
+    padding-bottom: 300px;
 }
 
 /* 내 캠 */
@@ -62,6 +62,8 @@
     width: 400px;
     height: 225px;
     display: inline-block;
+    position: relative;
+    width: 100%;
     overflow: hidden;
     border-radius: 20px;
     /* object-position:; */
@@ -87,8 +89,7 @@
 /* 멤버 캠사진 */
 /* 블러배경 */
 .cam_all li {
-    position: relative;
-    width: 100%;
+ 
     /* background-color: red; */
 }
 
@@ -165,6 +166,10 @@
 
 @media (max-width: 768px) {
 
+    .title {
+        color: #f1f1f1;
+        font-size: 1.5rem;
+    }
     /* 멤버캠 */
     .cam_wrap {
         /* background-color: yellow; */
@@ -229,19 +234,32 @@
     /* 멤버캠 */
     .cam_wrap {
         /* background-color: yellow; */
-        width: 80%;
+        width: 70%;
         height: 100%;
         margin-top: 130px;
         margin-left: 50px;
         display: inline-block;
         text-align: center;
+        margin-bottom: 30px;
+        height: 100vh;
+    }
+
+    .cam_all li {
+        height: 150px;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 20px;
+        display: block;
+        box-sizing: border-box;
+        transition: box-shadow 0.2s ease;
+        box-shadow: 0px 0px 10px #150039;
     }
 
     /* 멤버그리드 */
     .cam_all {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
-        gap: 10px 10px;
+        gap: 30px 10px;
     }
 
 
