@@ -191,9 +191,9 @@
 
     /* 위젯시계 */
     .draggable_clock {
-        width: 178px;
-        height: 60px;
-        line-height: 64px;
+        width: 195px;
+        height: 65px;
+        line-height: 65px;
         background-color: #0000006c;
         text-align: center;
         cursor: move;
@@ -207,11 +207,11 @@
     .clock_widget div {
         display: inline-block;
         color: #fff;
-        font-size: 2.6rem;
+        font-size: 3rem;
     }
 
     .fa-grip-lines {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 
 }
