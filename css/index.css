@@ -153,6 +153,9 @@
 
 
 
+/* 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌 */
+/* ? common이랑 index 분간이... */
+/* 🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌🙌 */
 
 
 
@@ -189,7 +192,43 @@
     }
 
 
-    /* 위젯시계 */
+    /* 위젯서랍 */
+    .drag_box .box_arrow {
+        width: 20px;
+        padding: 16px;
+        height: 20px;
+        filter: drop-shadow(0px 0px 3px #ffffff);
+    }
+
+    .drag_box {
+        position: fixed;
+        bottom: 100px;
+        right: -255px;
+        width: 320px;
+        height: 60px;
+        line-height: 60px;
+        background-color: #000000db;
+        border-radius: 100px;
+        transition: right 0.5s ease;
+    }
+
+    /* 위젯버튼 */
+    .drag_box_inner_btn {
+        width: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
+        margin-left: 60px;
+    }
+
+    .drag_box_inner_btn li {
+        width: 30px;
+        padding: 7px;
+    }
+    
+
+    /* float 위젯시계 */
     .draggable_clock {
         width: 195px;
         height: 65px;
