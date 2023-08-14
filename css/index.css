@@ -144,6 +144,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Tb.+Mo.ver */
 /* Tb.+Mo.ver */
 /* Tb.+Mo.ver */
@@ -168,6 +181,67 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 30px 30px;
+    }
+
+
+    /* 위젯시계 */
+    .draggable_clock {
+        width: 178px;
+        height: 60px;
+        line-height: 64px;
+        background-color: #0000006c;
+        text-align: center;
+        cursor: move;
+        position: absolute;
+        right: 3.5%;
+        top: 4%;
+        border-radius: 10px;
+        z-index: 500;
+    }
+
+    .clock_widget div {
+        display: inline-block;
+        color: #fff;
+        font-size: 2.6rem;
+    }
+
+    .fa-grip-lines {
+        font-size: 1.3rem;
+    }
+
+}
+
+
+
+
+
+
+
+
+/* Mo.ver */
+/* Mo.ver */
+/* Mo.ver */
+/* Mo.ver */
+
+
+@media (max-width: 460px) {
+
+    /* 멤버캠 */
+    .cam_wrap {
+        /* background-color: yellow; */
+        width: 80%;
+        height: 100%;
+        margin-top: 130px;
+        margin-left: 50px;
+        display: inline-block;
+        text-align: center;
+    }
+
+    /* 멤버그리드 */
+    .cam_all {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px 10px;
     }
 
 
