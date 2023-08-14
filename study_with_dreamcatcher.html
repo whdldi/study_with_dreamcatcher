@@ -49,7 +49,7 @@
 
 
      <main>
-<!--  
+          <!--  
 
 할 일
 멤버별 서브페이지 완성
@@ -129,7 +129,7 @@
                          <div class="blob bottom"></div>
                     </div> -->
                </div>
-               
+
                <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                     <defs>
                          <filter id="goo">
@@ -402,6 +402,7 @@
           //    \ (•◡•) /
 
 
+          /* 일반 PC사이즈 일때 위젯버튼 서랍 */
           $(document).ready(function () {
                // 클릭 상태를 추적하기 위한 변수
                let isClicked = false;
@@ -420,6 +421,26 @@
                     isClicked = !isClicked;
                });
           });
+
+
+
+          /* 일반 Tb(768px)사이즈 일때 위젯버튼 서랍 */
+
+          $(document).ready(function () {
+               $(".box_arrow_btn").click(function () {
+                    if (window.innerWidth <= 768) { 
+                         // 화면 너비가 768px 이하일 때만 실행 (미디어쿼리)
+                         let isClicked = $(this).data("clicked");
+                         $(".drag_box").css("right", isClicked ? "-255px" : "-70px");
+                         $(".box_arrow_btn").css("transform", isClicked ? "scaleX(1)" :
+                              "scaleX(-1)");
+
+                         // 클릭 상태 업데이트
+                         $(this).data("clicked", !isClicked);
+                    }
+               });
+          });
+
 
 
           // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
