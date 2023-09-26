@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study With Dreamcatcher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        referrerpolicy="no-referrer" />
+    <!-- 폰트어썸 아이콘-->
+    <link href="/css/font.css" rel="stylesheet" />
+    <link href="/css/common.css" rel="stylesheet" />
+    <!-- <link href="/css/index.css" rel="stylesheet" /> -->
+    <link href="/css/reset.css" rel="stylesheet" />
+    <link href="/css/sub_one_by_one.css" rel="stylesheet" />
+    <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="header_in">
+            <p class="title">Insomnia's Room</p>
+        </div>
+        <div class="fullpage" id="fullscreenBtn"><i class="fas fa-expand"></i></div>
+    </header>
+
+
+
+    <!-- 시계 드레그 -->
+
+    <div class="draggable_clock">
+        <i class="fas far fa-grip-lines"></i>
+        <!-- <i class="fas fa-bars"></i> -->
+        <!--   <div class="clock_widget" id="clock">
+    </div> -->
+        <div class="clock_widget">
+            <div class="time_hms" id="hour_min_sec"></div>
+            <div class="time_pmam" id="pmam"></div>
+        </div>
+
+    </div>
+    <div id="dropArea"></div>
+    <!-- 
+<button id="hideBtn">숨기기</button>
+<button id="showBtn">보이기</button> -->
+
+
+
+    <main>
+        <!--  
+
+할 일
+멤버별 서브페이지 완성
+-->
+        <div class="sidemenu">
+            <ul class="sideblock">
+                <li class="side_all" onclick="location.href='/study_with_dreamcatcher.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/DC_logo.png">
+                    </div>
+                    <!-- 선택된 상태면 speak_act 붙힘-->
+                    <div class="speak_act">
+                        <i class="fas fa-microphone fa-xs"></i>
+                    </div>
+                    <p class="side_mem_name">드림캐쳐</p>
+                </li>
+                <li class="side_jiu" onclick="location.href='#'">
+                    <div class="side_mem_img">
+                        <img src="/img/지유_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">지유</p>
+                </li>
+                <li class="side_sua" onclick="location.href='sub/with_sua_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/수아_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">수아</p>
+                </li>
+                <li class="side_siyeon" onclick="location.href='sub/with_siyeon_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/시연_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">시연</p>
+                </li>
+                <li class="side_handong" onclick="location.href='sub/with_handong_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/한동_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">한동</p>
+                </li>
+                <li class="side_yoohyeon" onclick="location.href='sub/with_yoohyeon_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/유현_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">유현</p>
+                </li>
+                <li class="side_dami" onclick="location.href='sub/with_dami_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/다미_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">다미</p>
+                </li>
+                <li class="side_gahyeon" onclick="location.href='sub/with_gahyeon_page.html'">
+                    <div class="side_mem_img">
+                        <img src="/img/가현_profile.jpg">
+                    </div>
+                    <p class="side_mem_name">가현</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 배경 숨쉬는 Lavalamp -->
+        <div class="main_lava_bg">
+
+            <!-- 잠깐 멈춤 -->
+            <div class="lamp">
+                <!-- <div class="lava">
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob"></div>
+                    <div class="blob top"></div>
+                    <div class="blob bottom"></div>
+            </div> -->
+            </div>
+
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo" />
+                        <feBlend in="SourceGraphic" in2="goo" />
+                    </filter>
+                </defs>
+            </svg>
+        </div>
+        <!-- 배경 숨쉬는 Lavalamp END -->
+
+        <!-- 화상 CAM -->
+        <div class="cam_wrap">
+            <ul class="cam_all cam_one_by_one">
+                <!-- 여기에 내 웹캠코드 넣으면 같이 공부하는느낌ㅇㅇ -->
+                <li class="cam_me"><span class="my_pic">ME
+                        <!-- <span>
+                        카메라 권한 허용시 Cam을 쓸 수 있어요
+                    </span> -->
+                    </span>
+                    <video class="my_cam_video" autoplay="true" id="videoElement">
+                    </video>
+                    <div class="my_self_filter"></div>
+                    <div class="mute_mic">
+                        <img src="/img/mic_mute.png">
+                    </div>
+                    <!-- 내 캠 허용시 -->
+                </li>
+
+                <li class="cam_jiu"><img class="cam_back_img" src="/img/지유_profile.jpg">
+                    <!-- <div class="inner_img"><img src="/img/123.jpg"></div> -->
+                    <div class="inner_img"><img src="/img/지유_profile.jpg"></div>
+                    <div class="mute_mic"><img src="/img/mic_mute.png"></div>
+                    <p class="mem_cam_name">🐰지유</p>
+                </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </ul>
+        </div>
+
+    </main>
+
+    <div class="drag_box">
+        <div class="box_arrow_btn"><img class="box_arrow" src="/img/left_arrow.png"></div>
+        <ul class="drag_box_inner_btn">
+            <li class="box_clock"><img class="widget_active_clock" src="/img/clock.png"></li>
+            <li class="box_playlist"><img class="" src="/img/playlist.png"></li>
+            <!-- <li class="box_timer"><img class="" src="/img/timer.png"></li> -->
+            <li class="box_me"><img class="widget_active_me" src="/img/me.png"></li>
+        </ul>
+    </div>
+
+
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+    <!-- jquery-ui-touch-punch -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+    </script>
+
+    <!-- 공통 JS -->
+    <script src="/js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
