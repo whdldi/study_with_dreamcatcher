@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study With Dreamcatcher</title>
+    <title>Study With Jiu🐰</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -26,50 +26,65 @@
         </div>
         <div class="fullpage" id="fullscreenBtn"><i class="fas fa-expand"></i></div>
     </header>
-
-
-
-    <!-- 시계 드레그 -->
-
+    <!-- 시계 위젯 -->
     <div class="draggable_clock">
         <i class="fas far fa-grip-lines"></i>
-        <!-- <i class="fas fa-bars"></i> -->
-        <!--   <div class="clock_widget" id="clock">
-    </div> -->
         <div class="clock_widget">
             <div class="time_hms" id="hour_min_sec"></div>
             <div class="time_pmam" id="pmam"></div>
         </div>
 
     </div>
-    <div id="dropArea"></div>
-    <!-- 
-<button id="hideBtn">숨기기</button>
-<button id="showBtn">보이기</button> -->
+    <!-- <div id="dropArea"></div> -->
+
+
+    <!-- BGM 위젯 -->
+    <div class="draggable_bgm">
+        <i class="fas far fa-grip-lines"></i>
+
+        <!-- 알맹이 -->
+        <div class="bgm_widget">
+
+            <div class="bgm-player">
+                <div class="player_info">
+                    <p class="bgm_name" id="current-track">Fireplace</p>
+                    <p class="bgm_time" id="remaining-time">0:00</p>
+                    <!-- <input type="range" id="volume-slider" value="100" min="0" max="100"> -->
+                    <div class="controls">
+                        <button id="prev-button"><i class="fas fa-backward"></i></button>
+                        <button id="play-pause-button"><i class="fas fa-pause"></i></button>
+                        <button id="next-button"><i class="fas fa-forward"></i></button>
+                    </div>
+                    <progress class="bgm_bar" id="progress-bar" value="0" max="100"></progress>
+                </div>
+            </div>
+            <audio id="bgm-audio" controls autoplay loop preload="auto">
+                <source src="/bgm/Fireplace.mp3" type="audio/mp3">
+            </audio>
+
+        </div>
+    </div>
+
+    <!-- <div id="dropArea"></div> -->
 
 
 
     <main>
-        <!--  
-
-할 일
-멤버별 서브페이지 완성
--->
         <div class="sidemenu">
             <ul class="sideblock">
                 <li class="side_all" onclick="location.href='/study_with_dreamcatcher.html'">
                     <div class="side_mem_img">
                         <img src="/img/DC_logo.png">
                     </div>
-                    <!-- 선택된 상태면 speak_act 붙힘-->
-                    <div class="speak_act">
-                        <i class="fas fa-microphone fa-xs"></i>
-                    </div>
                     <p class="side_mem_name">드림캐쳐</p>
                 </li>
                 <li class="side_jiu" onclick="location.href='#'">
                     <div class="side_mem_img">
                         <img src="/img/지유_profile.jpg">
+                    </div>
+                    <!-- 선택된 상태면 speak_act 붙힘-->
+                    <div class="speak_act">
+                        <i class="fas fa-microphone fa-xs"></i>
                     </div>
                     <p class="side_mem_name">지유</p>
                 </li>
@@ -207,6 +222,8 @@
 
     <!-- 공통 JS -->
     <script src="/js/index.js"></script>
+    <script src="/js/sub_bgm.js"></script>
+
 
 
 
