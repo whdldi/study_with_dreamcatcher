@@ -8,9 +8,11 @@
 
 .cam_wrap {
     /* background-color: yellow; */
-    width: 90%;
+    /* width: 90%; */
+    width: calc(100% - 100px);
+    padding: 0 20px;
     height: 100%;
-    margin-top: 200px;
+    margin-top: 160px;
     margin-left: 55px;
     display: inline-block;
     text-align: center;
@@ -23,21 +25,22 @@
     /* 반응형으로 만들때 이부분 수정 */
     grid-template-columns: repeat(4, 1fr);
     /* 4개의 열을 균등한 너비로 설정 */
-    gap: 70px 40px;
+    gap: 20px 20px;
+    
     /* 박스들 사이의 간격 설정 */
-    padding-bottom: 300px;
+    /* padding-bottom: 300px; */
 }
 
 /* 1:1 멤일때 */
-.cam_one_by_one{
+.cam_one_by_one {
     grid-template-columns: repeat(2, 1fr);
-    gap: 70px 40px;
+    gap:20px 20px;
     padding-bottom: 300px;
 }
 
 /* 내 캠 */
 /* 내 이미지 기본 보정일때 */
-#videoElement{
+#videoElement {
     /* filter: brightness(130%); */
     /* filter:contrast(120%); */
     /* 약간 블러주기 */
@@ -54,7 +57,7 @@
 }
 
 /* 내 캠 얼굴 필터 (빨간색,입술 부각) */
-.my_self_filter{
+.my_self_filter {
     /* background-color: rgba(255, 0, 0, 0.199); */
     position: absolute;
     /* z-index: 1000; */
@@ -66,7 +69,7 @@
     /* background-blend-mode: screen; */
     /* 이미지에 블랜드해야 될듯? */
 
-    
+
 
 }
 
@@ -101,7 +104,7 @@
 /* 멤버캠 */
 .cam_all li {
     width: 400px;
-    height: 225px;
+    height: 350px;
     display: inline-block;
     position: relative;
     width: 100%;
@@ -112,12 +115,12 @@
     display: block;
     box-sizing: border-box;
     transition: box-shadow 0.2s ease;
-    box-shadow: 0px 0px 10px #150039;
+    box-shadow: 0px 0px 10px #000000a6;
 }
 
 
 /* 1:1 멤일때 길이수정 */
-.cam_one_by_one li{
+.cam_one_by_one li {
     height: 50vh;
 }
 
@@ -133,13 +136,6 @@
     object-position: center center;
     height: 100%;
     display: inline-block;
-}
-
-/* 멤버 캠사진 */
-/* 블러배경 */
-.cam_all li {
- 
-    /* background-color: red; */
 }
 
 .inner_img {
@@ -203,6 +199,63 @@
 
 
 
+/* 1920 PC.ver */
+/* 1920 PC.ver */
+/* 1920 PC.ver */
+/* 1920 PC.ver */
+
+
+@media (max-width: 1920px) {
+
+   
+    /* 멤버캠 */
+    .cam_all li {
+        height: 310px;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+        display: block;
+        box-sizing: border-box;
+        transition: box-shadow 0.2s ease;
+    }
+
+
+}
+
+
+
+/* 1365 lap.ver */
+/* 1365 lap.ver */
+/* 1365 lap.ver */
+/* 1365 lap.ver */
+
+
+@media (max-width: 1365px) {
+
+   
+    /* 멤버캠 */
+    .cam_all li {
+        height: 240px;
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 20px;
+        display: block;
+        box-sizing: border-box;
+        transition: box-shadow 0.2s ease;
+    }
+
+
+}
+
+
+
+
+
+
 /* Tb.+Mo.ver */
 /* Tb.+Mo.ver */
 /* Tb.+Mo.ver */
@@ -227,6 +280,7 @@
         color: #f1f1f1;
         font-size: 1.2rem;
     }
+
     header .fas {
         color: #f1f1f1;
         font-size: 10px;
@@ -234,10 +288,11 @@
         top: 5px;
         right: 10px;
     }
+
     /* 멤버캠 */
     .cam_wrap {
         /* background-color: yellow; */
-        width: 85%;
+        /* width: 85%; */
         height: 100%;
         margin-top: 130px;
         margin-left: 50px;
@@ -249,7 +304,7 @@
     .cam_all {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px 30px;
+        gap: 20px 20px;
     }
 
 
@@ -287,7 +342,7 @@
         width: 30px;
         padding: 7px;
     }
-    
+
 
     /* float 위젯시계 */
     .draggable_clock {
@@ -299,7 +354,7 @@
         cursor: move;
         position: absolute;
         right: 3.5%;
-        top: 4%;
+        /* top: 4%; */
         border-radius: 10px;
         z-index: 500;
     }
@@ -316,12 +371,13 @@
 
 
     /* 세로로 길게 */
-    .cam_one_by_one{
+    .cam_one_by_one {
         grid-template-columns: repeat(1, 1fr);
-        gap: 70px 40px;
+        gap:20px 20px;
         padding-bottom: 300px;
-        
+
     }
+
     .cam_one_by_one li {
         height: 35vh;
     }
@@ -365,7 +421,7 @@
     /* 멤버캠 */
     .cam_wrap {
         /* background-color: yellow; */
-        width: 70%;
+        /* width: 70%; */
         height: 100%;
         margin-top: 130px;
         margin-left: 50px;
@@ -383,7 +439,6 @@
         display: block;
         box-sizing: border-box;
         transition: box-shadow 0.2s ease;
-        box-shadow: 0px 0px 10px #150039;
     }
 
     /* 멤버그리드 */
@@ -392,7 +447,7 @@
         grid-template-columns: repeat(1, 1fr);
         gap: 20px 10px;
     }
-    
+
     .cam_one_by_one li {
         height: 35vh;
     }
@@ -407,7 +462,7 @@
         cursor: move;
         position: absolute;
         right: 3.5%;
-        top: 4%;
+        /* top: 4%; */
         border-radius: 10px;
         z-index: 500;
     }
@@ -434,8 +489,6 @@ html {
     height: 100%;
     background-color: #090a0f;
     background: radial-gradient(ellipse at bottom, rgba(27, 39, 53, 1), rgba(9, 10, 15, 1));
-    /* overflow: hidden; */
-    /* ? 이거왜걸었더라? */
 }
 
 
@@ -450,6 +503,7 @@ html {
 
 /* 시계위젯 위치 */
 .draggable_clock {
+    box-shadow: 1px 1px 3px #00000082;
     width: 280px;
     height: 100px;
     line-height: 100px;
@@ -457,8 +511,8 @@ html {
     text-align: center;
     cursor: move;
     position: absolute;
-    right: 3.5%;
-    top: 5%;
+    right: 20px;
+    top: 40px;
     border-radius: 10px;
     z-index: 500;
     /* display: none; */
@@ -523,6 +577,160 @@ html {
 
 
 
+/* ---------- BGM 위젯 ---------- */
+
+/* BGM위젯 위치 */
+.draggable_bgm {
+    box-shadow: 1px 1px 3px #00000082;
+    width: 240px;
+    height: 100px;
+    background-color: #0000006c;
+    text-align: center;
+    cursor: move;
+    position: absolute;
+    left: 75px;
+    top: 40px;
+    border-radius: 10px;
+    z-index: 500;
+}
+
+.draggable_bgm .fa-grip-lines {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #ffffff5c;
+}
+
+.bgm-player {
+    text-align: center;
+    display: inline-block;
+    background-color: #150039;
+}
+
+
+
+/* 이전 다음 등 버튼 */
+.controls button i {
+    font-size: 1rem;
+}
+
+.controls {
+    width: 100%;
+    padding: 3px 0 6px 0;
+    
+}
+
+.controls button {
+    display: inline-block;
+    color: #fff;
+    padding: 4px 5px;
+    margin: 0 8px;
+    background-color: transparent;
+    border: transparent;
+    cursor: pointer;
+}
+
+.player_info {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.bgm_name {
+    display: block;
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+.bgm_bar {
+    display: block;
+    cursor: pointer;
+}
+
+/* none으로 살려놔야 타임바 보임 */
+.bgm_time {
+    display: none;
+}
+
+#bgm-audio {
+    display: none;
+}
+
+/* 볼륨슬라이더 */
+/* 
+progress, input[type="range"] {
+    width: 100%;
+    cursor: pointer;
+} */
+
+
+
+
+/* 재생 바 스타일 */
+#progress-bar {
+    /* width: 100%; */
+    height: 6px;
+    margin-top: 5px;
+    background-color: #190041;
+    /* 바의 배경색 */
+    border-radius: 10px;
+    /* 둥글게 만들기 */
+    position: relative;
+    overflow: hidden;
+}
+
+#progress-bar::-webkit-progress-bar {
+    background-color: #190041;
+    /* 바의 배경색 */
+}
+
+#progress-bar::-webkit-progress-value {
+    background-color: #7B27FF;
+    border-radius: 10px;
+    /* 둥글게 만들기 */
+}
+
+
+
+
+
+
+#hideBtn {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+}
+
+#hideBtn {
+    position: absolute;
+    top: 220px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -551,7 +759,7 @@ header {
     color: #f1f1f1;
     font-size: 1.5rem;
     /* font-weight: 400; */
-    /* padding-left: 20px; */
+    padding-right: 20px;
 }
 
 /* 전체화면 */
@@ -1021,9 +1229,9 @@ body {
     bottom: 110px;
     right: -315px;
     width: 390px;
-    height: 80px;
-    line-height: 80px;
-    background-color: #000000db;
+    height: 70px;
+    line-height: 70px;
+    background-color: #000000d9;
     border-radius: 100px;
     transition: right 0.5s ease;
     /* 부드러운 모션을 위한 트랜지션 속성 */
@@ -1042,7 +1250,7 @@ body {
 .box_arrow_btn {
     position: absolute;
     top: 4px;
-    left: 3px;
+    left: 7px;
 }
 
 /* 서랍 버튼 */
@@ -1063,7 +1271,7 @@ body {
 /* 화살표 속성 */
 .drag_box .box_arrow {
     width: 20px;
-    padding: 26px;
+    padding: 22px;
     height: 20px;
     filter: drop-shadow(0px 0px 3px #ffffff);
 }
@@ -1092,19 +1300,15 @@ body {
 .widget_active_clock {
     filter: drop-shadow(0px 0px 5px #3D00B2) contrast(1) !important;
 }
-/* 나 */
-.widget_active_me {
+
+
+/* 플리 */
+.widget_active_bgm {
     filter: drop-shadow(0px 0px 5px #3D00B2) contrast(1) !important;
 }
 
 
-
-
-
-
-
-
-
-
-
-
+/* 나 */
+.widget_active_me {
+    filter: drop-shadow(0px 0px 5px #3D00B2) contrast(1) !important;
+}
