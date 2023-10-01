@@ -345,66 +345,83 @@
 
 
 
-
-
-
-
-          // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-          //     BGM Playlist 
-          // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
-          //    \ (•◡•) /
           $(document).ready(function () {
+               const audioPaths = {
+                    Bgm1_Fireplace: 'https://drive.google.com/uc?export=download&id=1vSh75ZgsL13W-xYVKVkgtLlv7d7usmQn',
+                    Bgm2_Rain: 'https://drive.google.com/uc?export=download&id=1rIWAJ-2cQPfl06OeKK4xF3mjCRRplJef',
+                    Bgm3_MxRedKeyboard: 'https://drive.google.com/uc?export=download&id=1C-DlO3EAyfCAZ_YNNvfUAuYHqA4-r1Sp',
+               };
+          
+               // 음악 이름을 변경할 매핑 객체 생성
+               const nameMappings = {
+                    Bgm1_Fireplace: 'Fireplace 🔥',
+                    Bgm2_Rain: 'Rain 🌧️',
+                    Bgm3_MxRedKeyboard: 'Hesper\'s Keyboard ⌨️',
+               };
+          
                const audio = document.getElementById('bgm-audio');
                const playPauseButton = document.getElementById('play-pause-button');
                const currentTrack = document.getElementById('current-track');
                const remainingTime = document.getElementById('remaining-time');
                const progressBar = document.getElementById('progress-bar');
                const volumeSlider = document.getElementById('volume-slider');
-               const tracks = ['Fireplace', 'Rain', 'Keyboard Typing']; // 확장자를 제외한 파일 이름만 저장
+               const loading_ele = document.getElementById('loading_ele'); // 로딩요소
+               const blur_filter = $('.blur_filter'); // .blur_filter 요소
+          
                let currentTrackIndex = 0;
-
+          
+               // HTML 업데이트 함수
                function updateTrackInfo() {
-                    // .n초 후에 곡명을 업데이트 (남은시간 NaN뜨는거 때문에 느리게 바꿈)
-                    setTimeout(() => {
-                         currentTrack.textContent = '' + tracks[currentTrackIndex];
-                    }, 180);
+                    const currentTrackName = Object.keys(audioPaths)[currentTrackIndex];
+                    // 매핑된 이름으로 변경
+                    currentTrack.textContent = nameMappings[currentTrackName] || currentTrackName;
                }
-
+          
+               // 음악 정보 업데이트 함수 호출
+               updateTrackInfo();
+          
                function playNextTrack() {
-                    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-                    updateTrackInfo(); // 곡명을 먼저 업데이트
-                    audio.src = 'bgm/' + tracks[currentTrackIndex] + '.mp3'; // 확장자 추가
-                    audio.load(); // 새로운 오디오 파일 로드
+                    currentTrackIndex = (currentTrackIndex + 1) % Object.keys(audioPaths).length;
+                    updateTrackInfo();
+                    loading_ele.style.display = 'block'; // 로딩요소 표시
+                    blur_filter.css('filter', 'blur(5px)'); // blur_filter에 blur 효과 적용
+                    audio.src = Object.values(audioPaths)[currentTrackIndex];
+                    audio.load();
                     audio.play();
                }
-
+          
                function updateRemainingTime() {
-                    if (!isNaN(audio.duration)) { // duration이 NaN이 아닌 경우에만 실행
+                    if (!isNaN(audio.duration)) {
                          const duration = audio.duration;
                          const currentTime = audio.currentTime;
                          const remaining = duration - currentTime;
                          const minutes = Math.floor(remaining / 60);
                          const seconds = Math.floor(remaining % 60);
                          remainingTime.textContent = '' + minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
-
-                         // 업데이트 프로그래스 바
                          progressBar.value = (currentTime / duration) * 100;
-
                     }
                }
-
+          
                function updateVolume() {
                     audio.volume = volumeSlider.value / 100;
                }
-
+          
                audio.addEventListener('ended', playNextTrack);
-               audio.addEventListener('timeupdate', updateRemainingTime);
-
-               // 오디오 파일이 로드되었을 때 트랙 정보 업데이트
+               audio.addEventListener('timeupdate', function () {
+                    updateRemainingTime();
+                    // 로딩이 완료되면 로딩요소 숨김
+                    if (audio.readyState === 4) {
+                         loading_ele.style.display = 'none';
+                         blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
+                    }
+               });
+          
                audio.addEventListener('canplay', function () {
                     updateTrackInfo();
+                    loading_ele.style.display = 'none'; // 로딩이 완료되면 로딩요소 숨김
+                    blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
                });
-
+          
                $('#play-pause-button').click(function () {
                     if (audio.paused) {
                          audio.play();
@@ -414,18 +431,17 @@
                          playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
                     }
                });
-
+          
                $('#prev-button').click(function () {
-                    currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-                    updateTrackInfo(); // 곡명을 먼저 업데이트
-                    audio.src = 'bgm/' + tracks[currentTrackIndex] + '.mp3'; // 확장자 추가
-                    audio.load(); // 새로운 오디오 파일 로드
+                    currentTrackIndex = (currentTrackIndex - 1 + Object.keys(audioPaths).length) % Object.keys(audioPaths).length;
+                    updateTrackInfo();
+                    audio.src = Object.values(audioPaths)[currentTrackIndex];
+                    audio.load();
                     audio.play();
                });
-
+          
                $('#next-button').click(playNextTrack);
-
-               // 프로그래스 바 클릭 이벤트 처리
+          
                progressBar.addEventListener('click', function (e) {
                     const progressBarRect = progressBar.getBoundingClientRect();
                     const clickX = e.clientX - progressBarRect.left;
@@ -433,15 +449,8 @@
                     const seekTime = (clickX / progressBarWidth) * audio.duration;
                     audio.currentTime = seekTime;
                });
-
-               // 볼륨 슬라이더 이벤트 처리
-               // volumeSlider.addEventListener('input', updateVolume);
           });
-
-
-
-
-
+          
 
 
           // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
