@@ -26,7 +26,7 @@
     grid-template-columns: repeat(4, 1fr);
     /* 4개의 열을 균등한 너비로 설정 */
     gap: 20px 20px;
-    
+
     /* 박스들 사이의 간격 설정 */
     /* padding-bottom: 300px; */
 }
@@ -34,7 +34,7 @@
 /* 1:1 멤일때 */
 .cam_one_by_one {
     grid-template-columns: repeat(2, 1fr);
-    gap:20px 20px;
+    gap: 20px 20px;
     padding-bottom: 300px;
 }
 
@@ -104,7 +104,8 @@
 /* 멤버캠 */
 .cam_all li {
     width: 400px;
-    height: 350px;
+    /* height: 350px; */
+    height: 450px;
     display: inline-block;
     position: relative;
     width: 100%;
@@ -207,10 +208,10 @@
 
 @media (max-width: 1920px) {
 
-   
+
     /* 멤버캠 */
     .cam_all li {
-        height: 310px;
+        height: 340px;
         display: inline-block;
         position: relative;
         width: 100%;
@@ -234,7 +235,7 @@
 
 @media (max-width: 1365px) {
 
-   
+
     /* 멤버캠 */
     .cam_all li {
         height: 240px;
@@ -373,7 +374,7 @@
     /* 세로로 길게 */
     .cam_one_by_one {
         grid-template-columns: repeat(1, 1fr);
-        gap:20px 20px;
+        gap: 20px 20px;
         padding-bottom: 300px;
 
     }
@@ -556,25 +557,6 @@ html {
     top: 0;
 }
 
-#hideBtn {
-    position: absolute;
-    top: 220px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-}
-
-#hideBtn {
-    position: absolute;
-    top: 220px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 500;
-}
-
-
-
-
 
 
 /* ---------- BGM 위젯 ---------- */
@@ -617,7 +599,11 @@ html {
 .controls {
     width: 100%;
     padding: 3px 0 6px 0;
-    
+}
+
+.blur_filter {
+    filter: blur(3px);
+
 }
 
 .controls button {
@@ -635,12 +621,14 @@ html {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+    width: 80%;
 }
+
 
 .bgm_name {
     display: block;
     color: #fff;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
 }
 
 .bgm_bar {
@@ -667,10 +655,51 @@ progress, input[type="range"] {
 
 
 
+/* 브금 로딩 */
+.bgm_loading {}
+
+.loading_cir {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.loading_cir i {
+    font-size: 2rem;
+    color: #fff;
+    display: inline-block;
+    animation-name: loading_circle;
+    /* 이름짓기 */
+    animation-duration: 5s;
+    /* 실행시간 */
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: inline-block;
+    width: -7px;
+
+
+}
+
+@keyframes loading_circle {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}
+
+
+
+
 /* 재생 바 스타일 */
 #progress-bar {
-    /* width: 100%; */
-    height: 6px;
+    width: 100%;
+    height: 5px;
     margin-top: 5px;
     background-color: #190041;
     /* 바의 배경색 */
@@ -737,14 +766,14 @@ progress, input[type="range"] {
 
 /* ---------- 헤더 ---------- */
 header {
-    height: 30px;
-    line-height: 30px;
+    height: 33px;
+    line-height: 33px;
     position: fixed;
     z-index: 999999999;
     text-align: center;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.671);
     width: calc(100% - 50px);
-    right: 0;
+    left: 65px;
     /* background-color: rgba(0, 0, 0, 0.3); */
     background-color: #0000008a;
 }
@@ -757,7 +786,7 @@ header {
 /* 방 제목 */
 .title {
     color: #f1f1f1;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     /* font-weight: 400; */
     padding-right: 20px;
 }
@@ -797,7 +826,7 @@ main {
 .sidemenu {
     position: fixed;
     z-index: 5000;
-    width: 55px;
+    width: 65px;
     height: 100vh;
 
     background-color: #00000054;
@@ -805,7 +834,7 @@ main {
 }
 
 .sideblock {
-    margin-top: 30px;
+    margin-top: 20px;
     width: 100%;
     /* background-color: #f1f1f1; */
     text-align: center;
@@ -813,8 +842,8 @@ main {
 
 .sideblock li {
     display: inline-block;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     background-color: #661BAC;
     margin-top: 20px;
@@ -892,9 +921,9 @@ main {
 }
 
 .side_mem_name {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #ccc;
-    padding-top: 5px;
+    padding-top: 7px;
     font-weight: 500;
     /* display: none; */
 }
