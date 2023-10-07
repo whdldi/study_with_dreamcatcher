@@ -22,39 +22,63 @@
 
           $(document).ready(function () {
                var isFullscreen = false;
-
+             
+               function toggleFullscreen() {
+                 var element = document.documentElement;
+             
+                 if (!isFullscreen) {
+                   if (element.requestFullscreen) {
+                     element.requestFullscreen();
+                   } else if (element.mozRequestFullScreen) {
+                     element.mozRequestFullScreen();
+                   } else if (element.webkitRequestFullscreen) {
+                     element.webkitRequestFullscreen();
+                   } else if (element.msRequestFullscreen) {
+                     element.msRequestFullscreen();
+                   }
+             
+                   isFullscreen = true;
+                   $("#fullscreenBtn").html('<i class="fas fa-compress"></i>');
+                 } else {
+                   exitFullscreen();
+                 }
+               }
+             
+               function exitFullscreen() {
+                 if (document.exitFullscreen) {
+                   document.exitFullscreen();
+                 } else if (document.mozCancelFullScreen) {
+                   document.mozCancelFullScreen();
+                 } else if (document.webkitExitFullscreen) {
+                   document.webkitExitFullscreen();
+                 } else if (document.msExitFullscreen) {
+                   document.msExitFullscreen();
+                 }
+             
+                 isFullscreen = false;
+                 $("#fullscreenBtn").html('<i class="fas fa-expand"></i>');
+               }
+             
                $("#fullscreenBtn").click(function () {
-                    var element = document.documentElement;
-
-                    if (!isFullscreen) {
-                         if (element.requestFullscreen) {
-                              element.requestFullscreen();
-                         } else if (element.mozRequestFullScreen) {
-                              element.mozRequestFullScreen();
-                         } else if (element.webkitRequestFullscreen) {
-                              element.webkitRequestFullscreen();
-                         } else if (element.msRequestFullscreen) {
-                              element.msRequestFullscreen();
-                         }
-
-                         isFullscreen = true;
-                         $(this).html('<i class="fas fa-compress"></i>');
-                    } else {
-                         if (document.exitFullscreen) {
-                              document.exitFullscreen();
-                         } else if (document.mozCancelFullScreen) {
-                              document.mozCancelFullScreen();
-                         } else if (document.webkitExitFullscreen) {
-                              document.webkitExitFullscreen();
-                         } else if (document.msExitFullscreen) {
-                              document.msExitFullscreen();
-                         }
-
-                         isFullscreen = false;
-                         $(this).html('<i class="fas fa-expand"></i>');
-                    }
+                 toggleFullscreen();
                });
-          });
+             
+               // F11 키 누를 때
+               $(document).keydown(function (e) {
+                 if (e.key === 'F11') {
+                   e.preventDefault();
+                   toggleFullscreen();
+                 }
+               });
+             
+               // ESC 키 누를 때
+               $(document).keydown(function (e) {
+                 if (e.key === 'Escape') {
+                   exitFullscreen();
+                 }
+               });
+             });
+             
 
 
 
@@ -109,12 +133,12 @@
           //    \ (•◡•) /
           $(document).ready(function () {
                navigator.mediaDevices.getUserMedia({
-                         video: true
-                    })
-                    .then(function (stream) {
-                         var videoElement = document.getElementById("videoElement");
-                         videoElement.srcObject = stream;
-                         // 카메라 사용이 허용되었으므로 이미지를 보여줍니다.
+                    video: true
+               })
+               .then(function (stream) {
+                    var videoElement = document.getElementById("videoElement");
+                    videoElement.srcObject = stream;
+                    // 카메라 사용이 허용되었으므로 이미지를 보여줍니다.
                          $(".my_pic").hide();
 
                          // 비디오를 좌우로 반전시킵니다.
@@ -126,7 +150,52 @@
                          $(".my_pic").show();
                     });
           });
-
+          
+          
+          
+          
+          
+          
+          // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
+          //  멤버 캠 (캠 권한 필요) 
+          //  영상 loop 두번째 재생 시 소리 없애고 영상만 반복재생
+          // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
+          //    \ (•◡•) /
+          $(document).ready(function () {
+               const iframe = $('iframe');
+               const muteMic = $('.mem_mute_mic');
+               const youtubePlayer = document.getElementById('youtube-video');
+               
+               // 가장 가까운 .wating_img 요소 찾기
+               const image = iframe.closest('li').find('.wating_img');
+           
+               // 아이프레임 로드 이벤트 처리
+               iframe.on('load', function () {
+               //     setTimeout(function () {
+               //         muteMic.css('display', 'block'); // 4초 뒤에 .mem_mute_mic 표시
+               //     }, 4000); // 4초 뒤에 iframe 영상 뮤트 및 .mem_mute_mic 표시
+           
+                   // 아이프레임 로딩 성공 시 이미지 숨기기
+                   image.hide();
+               });
+           
+               // 아이프레임 로딩 실패 시 이미지 보이기
+               iframe.on('error', function () {
+                   image.show();
+               });
+           
+               // YouTube 비디오 뮤트 설정
+               youtubePlayer.addEventListener('load', function () {
+               //     youtubePlayer.contentWindow.postMessage('{"event":"command","func":"' + 'mute' + '","args":""}', '*');
+               });
+           
+               // YouTube 비디오 반복 재생 시 뮤트 설정
+               youtubePlayer.addEventListener('ended', function () {
+                   youtubePlayer.contentWindow.postMessage('{"event":"command","func":"' + 'mute' + '","args":""}', '*');
+               });
+           });
+           
+          
           // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
           //     위젯 드레그 (시계) : 사용시, 제이쿼리 드레그 관련 스크립트 필요
           //     jquery-ui-touch-punch
