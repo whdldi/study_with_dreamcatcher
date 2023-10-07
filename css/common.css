@@ -30,12 +30,23 @@
     /* 박스들 사이의 간격 설정 */
     /* padding-bottom: 300px; */
 }
+/* 전체멤 캠 */
+/* .cam_all li video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
 
 /* 1:1 멤일때 */
 .cam_one_by_one {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px 20px;
     padding-bottom: 300px;
+}
+
+/* 1:1 멤일때 길이수정 */
+.cam_one_by_one li {
+    height: 50vh;
 }
 
 /* 내 캠 */
@@ -68,9 +79,6 @@
     /* background-blend-mode:multiply; */
     /* background-blend-mode: screen; */
     /* 이미지에 블랜드해야 될듯? */
-
-
-
 }
 
 
@@ -96,14 +104,13 @@
 
 /* 멤버캠 블러배경 */
 .cam_back_img {
-    filter: blur(17px);
+    filter: blur(6px);
     width: 100%;
     height: 100%;
 }
 
 /* 멤버캠 */
 .cam_all li {
-    width: 400px;
     /* height: 350px; */
     height: 450px;
     display: inline-block;
@@ -111,27 +118,35 @@
     width: 100%;
     overflow: hidden;
     border-radius: 20px;
-    /* object-position:; */
-    /*  object-fit: h; */
     display: block;
     box-sizing: border-box;
     transition: box-shadow 0.2s ease;
     box-shadow: 0px 0px 10px #000000a6;
 }
 
+/* 멤버캠 유튜브 영상 */
 
-/* 1:1 멤일때 길이수정 */
-.cam_one_by_one li {
-    height: 50vh;
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%; /* 높이를 100%로 설정하여 부모 요소 크기에 맞게 확대합니다. */
+    overflow: hidden;
 }
 
-
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 커버 모드로 설정합니다. */
+}
 
 /* 블러배경 꽉차게 */
 /* 클래스 안써서 해서 뒤에껏들 다 종속됨 ㅅㄱ; */
 .cam_all li .cam_back_img,
 .inner_img img {
-    /* width: 100%; */
+    width: 100%;
     overflow: hidden;
     object-fit: cover;
     object-position: center center;
@@ -165,7 +180,17 @@
     border-radius: 10px;
     box-shadow: 0px 0px 3px #000000;
 }
-
+/* 프레임 가져올때 */
+.error_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.error_img img{
+    object-fit: cover;
+    object-position: center center;
+}
 /* 뮤트마이크 */
 .mute_mic {
     width: 30px;
@@ -176,6 +201,10 @@
     left: 10px;
     border-radius: 10px;
     box-shadow: 0px 0px 3px #000000;
+}
+
+.mem_mute_mic{
+    /* display: none; */
 }
 
 /* 뮤트마이크 */
@@ -656,7 +685,6 @@ progress, input[type="range"] {
 
 
 /* 브금 로딩 */
-.bgm_loading {}
 
 .loading_cir {
     width: 100%;
