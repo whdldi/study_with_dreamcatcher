@@ -2,160 +2,160 @@
 <html lang="ko">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study With Dreamcatcher🔮</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-referrerpolicy="no-referrer" />
-<!-- 폰트어썸 아이콘-->
-<link href="css/font.css" rel="stylesheet" />
-<link href="css/common.css" rel="stylesheet" />
-<link href="css/index.css" rel="stylesheet" />
-<link href="css/reset.css" rel="stylesheet" />
-<link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Study With Dreamcatcher🔮</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+          referrerpolicy="no-referrer" />
+     <!-- 폰트어썸 아이콘-->
+     <link href="css/font.css" rel="stylesheet" />
+     <link href="css/common.css" rel="stylesheet" />
+     <link href="css/index.css" rel="stylesheet" />
+     <link href="css/reset.css" rel="stylesheet" />
+     <link href="https://webfontworld.github.io/pretendard/Pretendard.css" rel="stylesheet">
 </head>
 
 
-<!-- 할 일 : 
-1. 줄였을때 위젯도 줄이기
-2. 키보드 브금빼고 30분정도로 늘리기
-3. 영상넣기
--->
-
 <body>
-<header>
-<div class="header_in">
-     <p class="title">Insomnia's Room</p>
-</div>
-<div class="fullpage" id="fullscreenBtn"><i class="fas fa-expand"></i></div>
-</header>
+     <header>
+          <div class="header_in">
+               <p class="title">Insomnia's Room</p>
+          </div>
+          <div class="fullpage" id="fullscreenBtn"><i class="fas fa-expand"></i></div>
+     </header>
 
 
 
-<!-- 시계 위젯 -->
-<div class="draggable_clock">
-<i class="fas far fa-grip-lines"></i>
-<div class="clock_widget">
-     <div class="time_hms" id="hour_min_sec"></div>
-     <div class="time_pmam" id="pmam"></div>
-</div>
+     <!-- 시계 위젯 -->
+     <div class="draggable_clock">
+          <i class="fas far fa-grip-lines"></i>
+          <div class="clock_widget">
+               <div class="time_hms" id="hour_min_sec"></div>
+               <div class="time_pmam" id="pmam"></div>
+          </div>
 
-</div>
-<!--     <div id="dropArea"></div> -->
-
-<!-- BGM 위젯 -->
-<div class="draggable_bgm">
-<i class="fas far fa-grip-lines"></i>
-
-<!-- 알맹이 -->
-<div class="bgm_widget">
-     <div class="bgm-player">
-          <div class="player_info">
-               <p class="bgm_name blur_filter" id="current-track">
-                    <!-- 첫 bgm이름 -->
-               </p>
+     </div>
+     <!--     <div id="dropArea"></div> -->
 
 
-               <!-- 로딩아이콘 -->
-               <div class="bgm_loading" id="loading_ele">
-                    <!-- <img src="loading.gif" alt="로딩 중..."> -->
-                    <div class="loading_cir">
-                         <i class="fas fa-spinner"></i>
+     <!-- 0117 수정 시작 -->
+
+     <!-- BGM 위젯 -->
+     <div class="draggable_bgm">
+          <i class="fas far fa-grip-lines"></i>
+
+          <!-- 알맹이 -->
+          <div class="bgm_widget">
+               <div class="bgm-player">
+                    <div class="player_info">
+                         <p class="bgm_name " id="current-track">
+                              <!-- blur_filter -->
+                              <!-- 첫 bgm이름 -->
+                         </p>
+
+
+                         <!-- 로딩아이콘 0117 안씀-->
+                         <div class="bgm_loading" id="loading_ele" style="display:none;">
+                              <!-- <img src="loading.gif" alt="로딩 중..."> -->
+                              <div class="loading_cir">
+                                   <i class="fas fa-spinner"></i>
+                              </div>
+                         </div>
+
+
+                         <p class="bgm_time" id="remaining-time">0:00</p>
+                         <div class="controls ">
+                              <!-- blur_filter -->
+                              <button id="prev-button"><i class="fas fa-backward"></i></button>
+                              <button id="play-pause-button"><i class="fas fa-play"></i></button>
+                              <button id="next-button"><i class="fas fa-forward"></i></button>
+                         </div>
+                         <progress class="bgm_bar " id="progress-bar" value="0" max="100"></progress>
+                         <!-- blur_filter -->
                     </div>
                </div>
 
-
-               <p class="bgm_time" id="remaining-time">0:00</p>
-               <div class="controls blur_filter">
-                    <button id="prev-button"><i class="fas fa-backward"></i></button>
-                    <button id="play-pause-button"><i class="fas fa-pause"></i></button>
-                    <button id="next-button"><i class="fas fa-forward"></i></button>
-               </div>
-               <progress class="bgm_bar blur_filter" id="progress-bar" value="0" max="100"></progress>
+               <audio id="bgm-audio" controls autoplay loop>
+                    <source src="bgm/DC_fire.mp3" type="audio/mp3">
+               </audio>
           </div>
      </div>
 
-     <!-- preload="auto" -->
-     <audio id="bgm-audio" controls autoplay loop >
-          <source src="https://drive.google.com/uc?export=download&id=1vSh75ZgsL13W-xYVKVkgtLlv7d7usmQn"
-               type="audio/mp3">
-     </audio>
-</div>
-</div>
+     <!-- 0117 수정 끝 -->
 
 
-<!--     <div id="dropArea"></div> -->
+     <!--     <div id="dropArea"></div> -->
 
 
 
 
-<main>
-<div class="sidemenu">
-     <ul class="sideblock">
-          <li class="side_all" onclick="location.href='study_with_dreamcatcher.html'">
-               <div class="side_mem_img">
-                    <img src="img/DC_logo.png">
-               </div>
-               <!-- 선택된 상태면 speak_act 붙힘-->
-               <div class="speak_act">
-                    <i class="fas fa-microphone fa-xs"></i>
-               </div>
-               <p class="side_mem_name">드림캐쳐</p>
-          </li>
-          <li class="side_jiu" onclick="location.href='sub/with_jiu_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/지유_profile.jpg">
-               </div>
-               <p class="side_mem_name">지유</p>
-          </li>
-          <li class="side_sua" onclick="location.href='sub/with_sua_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/수아_profile.jpg">
-               </div>
-               <p class="side_mem_name">수아</p>
-          </li>
-          <li class="side_siyeon" onclick="location.href='sub/with_siyeon_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/시연_profile.jpg">
-               </div>
-               <p class="side_mem_name">시연</p>
-          </li>
-          <li class="side_handong" onclick="location.href='sub/with_handong_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/한동_profile.jpg">
-               </div>
-               <p class="side_mem_name">한동</p>
-          </li>
-          <li class="side_yoohyeon" onclick="location.href='sub/with_yoohyeon_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/유현_profile.jpg">
-               </div>
-               <p class="side_mem_name">유현</p>
-          </li>
-          <li class="side_dami" onclick="location.href='sub/with_dami_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/다미_profile.jpg">
-               </div>
-               <p class="side_mem_name">다미</p>
-          </li>
-          <li class="side_gahyeon" onclick="location.href='sub/with_gahyeon_page.html'">
-               <div class="side_mem_img">
-                    <img src="img/가현_profile.jpg">
-               </div>
-               <p class="side_mem_name">가현</p>
-          </li>
-     </ul>
-</div>
+     <main>
+          <div class="sidemenu">
+               <ul class="sideblock">
+                    <li class="side_all" onclick="location.href='study_with_dreamcatcher.html'">
+                         <div class="side_mem_img">
+                              <img src="img/DC_logo.png">
+                         </div>
+                         <!-- 선택된 상태면 speak_act 붙힘-->
+                         <div class="speak_act">
+                              <i class="fas fa-microphone fa-xs"></i>
+                         </div>
+                         <p class="side_mem_name">드림캐쳐</p>
+                    </li>
+                    <li class="side_jiu" onclick="location.href='sub/with_jiu_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/지유_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">지유</p>
+                    </li>
+                    <li class="side_sua" onclick="location.href='sub/with_sua_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/수아_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">수아</p>
+                    </li>
+                    <li class="side_siyeon" onclick="location.href='sub/with_siyeon_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/시연_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">시연</p>
+                    </li>
+                    <li class="side_handong" onclick="location.href='sub/with_handong_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/한동_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">한동</p>
+                    </li>
+                    <li class="side_yoohyeon" onclick="location.href='sub/with_yoohyeon_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/유현_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">유현</p>
+                    </li>
+                    <li class="side_dami" onclick="location.href='sub/with_dami_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/다미_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">다미</p>
+                    </li>
+                    <li class="side_gahyeon" onclick="location.href='sub/with_gahyeon_page.html'">
+                         <div class="side_mem_img">
+                              <img src="img/가현_profile.jpg">
+                         </div>
+                         <p class="side_mem_name">가현</p>
+                    </li>
+               </ul>
+          </div>
 
-<!-- 배경 숨쉬는 Lavalamp -->
-<div class="main_lava_bg">
+          <!-- 배경 숨쉬는 Lavalamp -->
+          <div class="main_lava_bg">
 
-     <!-- 잠깐 멈춤 -->
-     <div class="lamp">
-          <!-- <div class="lava">
+               <!-- 잠깐 멈춤 -->
+               <div class="lamp">
+                    <!-- <div class="lava">
      <div class="blob"></div>
      <div class="blob"></div>
      <div class="blob"></div>
@@ -167,171 +167,172 @@ referrerpolicy="no-referrer" />
      <div class="blob top"></div>
      <div class="blob bottom"></div>
 </div> -->
-     </div>
+               </div>
 
-     <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-          <defs>
-               <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix"
-                         values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-               </filter>
-          </defs>
-     </svg>
-</div>
-<!-- 배경 숨쉬는 Lavalamp END -->
+               <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+                    <defs>
+                         <filter id="goo">
+                              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                              <feColorMatrix in="blur" mode="matrix"
+                                   values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                              <feBlend in="SourceGraphic" in2="goo" />
+                         </filter>
+                    </defs>
+               </svg>
+          </div>
+          <!-- 배경 숨쉬는 Lavalamp END -->
 
-<!-- 화상 CAM -->
-<div class="cam_wrap">
-     <ul class="cam_all">
+          <!-- 화상 CAM -->
+          <div class="cam_wrap">
+               <ul class="cam_all">
 
-          <!-- 여기에 내 웹캠코드 넣으면 같이 공부하는느낌ㅇㅇ -->
-          <li class="cam_me"><span class="my_pic">ME
-                    <!-- <span>
+                    <!-- 여기에 내 웹캠코드 넣으면 같이 공부하는느낌ㅇㅇ -->
+                    <li class="cam_me"><span class="my_pic">ME
+                              <!-- <span>
           카메라 권한 허용시 Cam을 쓸 수 있어요
      </span> -->
-               </span>
-               <video autoplay="true" id="videoElement" poster="img/수아_profile.jpg"></video>
-               <div class="mute_mic">
-                    <img src="img/mic_mute.png">
-               </div>
-               <!-- 내 캠 허용시 -->
-          </li>
+                         </span>
+                         <video autoplay="true" id="videoElement"
+                              poster="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb42hCh%2FbtsCTBDe07Z%2F6UmO5bOdmzTWaK4FJa9c7K%2Fimg.png"></video>
+                         <div class="mute_mic">
+                              <img src="img/mic_mute.png">
+                         </div>
+                         <!-- 내 캠 허용시 -->
+                    </li>
 
-          <li class="cam_jiu">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/chAXltovDb8?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=chAXltovDb8"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/지유_profile.jpg">
-                         <div class="inner_img"><img src="img/지유_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐰지유</p>
-          </li>
+                    <li class="cam_jiu">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/chAXltovDb8?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=chAXltovDb8"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/지유_profile.jpg">
+                                   <div class="inner_img"><img src="img/지유_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐰지유</p>
+                    </li>
 
-          <li class="cam_sua">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/fiIIyoYJ3Pk?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=fiIIyoYJ3Pk"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/수아_profile.jpg">
-                         <div class="inner_img"><img src="img/수아_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐥수아</p>
-          </li>
+                    <li class="cam_sua">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/fiIIyoYJ3Pk?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=fiIIyoYJ3Pk"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/수아_profile.jpg">
+                                   <div class="inner_img"><img src="img/수아_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐥수아</p>
+                    </li>
 
-          <li class="cam_siyeon">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/TvQgv5rKPS4?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=TvQgv5rKPS4"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/시연_profile.jpg">
-                         <div class="inner_img"><img src="img/시연_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐺시연</p>
-          </li>
+                    <li class="cam_siyeon">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/TvQgv5rKPS4?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=TvQgv5rKPS4"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/시연_profile.jpg">
+                                   <div class="inner_img"><img src="img/시연_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐺시연</p>
+                    </li>
 
-          <li class="cam_handong">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/cpK4emaZAoo?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=cpK4emaZAoo"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/한동_profile.jpg">
-                         <div class="inner_img"><img src="img/한동_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐱한동</p>
-          </li>
+                    <li class="cam_handong">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/cpK4emaZAoo?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=cpK4emaZAoo"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/한동_profile.jpg">
+                                   <div class="inner_img"><img src="img/한동_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐱한동</p>
+                    </li>
 
-          <li class="cam_yoohyeon">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/z7aNafYbHgo?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=z7aNafYbHgo"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/유현_profile.jpg">
-                         <div class="inner_img"><img src="img/유현_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐶유현</p>
-          </li>
+                    <li class="cam_yoohyeon">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/z7aNafYbHgo?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=z7aNafYbHgo"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/유현_profile.jpg">
+                                   <div class="inner_img"><img src="img/유현_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐶유현</p>
+                    </li>
 
-          <li class="cam_dami">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/LpOcRDhLnNE?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=LpOcRDhLnNE"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/다미_profile.jpg">
-                         <div class="inner_img"><img src="img/다미_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🐼다미</p>
-          </li>
+                    <li class="cam_dami">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/LpOcRDhLnNE?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=LpOcRDhLnNE"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/다미_profile.jpg">
+                                   <div class="inner_img"><img src="img/다미_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🐼다미</p>
+                    </li>
 
-          <li class="cam_gahyeon">
-               <div class="video-container">
-                    <iframe id="youtube-video"
-                         src="https://www.youtube.com/embed/kOT7Lwnp3H4?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=kOT7Lwnp3H4"
-                         allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
-                         modestbranding="0"></iframe>
-                    <div class="wating_img">
-                         <img class="cam_back_img" src="img/가현_profile.jpg">
-                         <div class="inner_img"><img src="img/가현_profile.jpg"></div>
-                    </div>
-               </div>
-               <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
-               <p class="mem_cam_name">🦊가현</p>
-          </li>
+                    <li class="cam_gahyeon">
+                         <div class="video-container">
+                              <iframe id="youtube-video"
+                                   src="https://www.youtube.com/embed/kOT7Lwnp3H4?autoplay=1&mute=1&vq=small&controls=1&loop=1&playlist=kOT7Lwnp3H4"
+                                   allowfullscreen frameborder="0" scrolling="no" controls="1" allow="autoplay; loop;"
+                                   modestbranding="0"></iframe>
+                              <div class="wating_img">
+                                   <img class="cam_back_img" src="img/가현_profile.jpg">
+                                   <div class="inner_img"><img src="img/가현_profile.jpg"></div>
+                              </div>
+                         </div>
+                         <div class="mute_mic mem_mute_mic"><img src="img/mic_mute.png"></div>
+                         <p class="mem_cam_name">🦊가현</p>
+                    </li>
 
-     </ul>
-</div>
+               </ul>
+          </div>
 
-</main>
-<div class="drag_box">
-<div class="box_arrow_btn"><img class="box_arrow" src="/img/left_arrow.png"></div>
-<ul class="drag_box_inner_btn">
-     <li class="box_clock"><img class="widget_active_clock" src="/img/clock.png"></li>
-     <li class="box_playlist"><img class="widget_active_bgm" src="/img/playlist.png"></li>
-     <!-- <li class="box_timer"><img class="" src="/img/timer.png"></li> -->
-     <li class="box_me"><img class="widget_active_me" src="/img/me.png"></li>
-</ul>
-</div>
-
-
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
-<!-- jquery-ui-touch-punch -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
-</script>
-
-<!-- 공통 JS -->
-<script src="/js/index.js"></script>
+     </main>
+     <div class="drag_box">
+          <div class="box_arrow_btn"><img class="box_arrow" src="/img/left_arrow.png"></div>
+          <ul class="drag_box_inner_btn">
+               <li class="box_clock"><img class="widget_active_clock" src="/img/clock.png"></li>
+               <li class="box_playlist"><img class="widget_active_bgm" src="/img/playlist.png"></li>
+               <!-- <li class="box_timer"><img class="" src="/img/timer.png"></li> -->
+               <li class="box_me"><img class="widget_active_me" src="/img/me.png"></li>
+          </ul>
+     </div>
 
 
-    
+
+     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+     <!-- jquery-ui-touch-punch -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js">
+     </script>
+
+     <!-- 공통 JS -->
+     <script src="/js/index.js"></script>
+
+
+
 
 
 
