@@ -38,41 +38,52 @@
     <!-- <div id="dropArea"></div> -->
 
 
-<!-- BGM 위젯 -->
-<div class="draggable_bgm">
-    <i class="fas far fa-grip-lines"></i>
 
-    <!-- 알맹이 -->
-    <div class="bgm_widget">
-         <div class="bgm-player">
-              <div class="player_info">
-                   <p class="bgm_name blur_filter" id="current-track"><!-- 첫 bgm이름 --></p>
+     <!-- 0117 수정 시작 -->
+
+     <!-- BGM 위젯 -->
+     <div class="draggable_bgm">
+          <i class="fas far fa-grip-lines"></i>
+
+          <!-- 알맹이 -->
+          <div class="bgm_widget">
+               <div class="bgm-player">
+                    <div class="player_info">
+                         <p class="bgm_name " id="current-track">
+                              <!-- blur_filter -->
+                              <!-- 첫 bgm이름 -->
+                         </p>
 
 
-                   <!-- 로딩아이콘 -->
-                   <div class="bgm_loading" id="loading_ele">
-                        <!-- <img src="loading.gif" alt="로딩 중..."> -->
-                             <div class="loading_cir">
-                                  <i class="fas fa-spinner"></i>
-                             </div>
-                   </div>
+                         <!-- 로딩아이콘 0117 안씀-->
+                         <div class="bgm_loading" id="loading_ele" style="display:none;">
+                              <!-- <img src="loading.gif" alt="로딩 중..."> -->
+                              <div class="loading_cir">
+                                   <i class="fas fa-spinner"></i>
+                              </div>
+                         </div>
 
-                   
-                   <p class="bgm_time" id="remaining-time">0:00</p>
-                   <div class="controls blur_filter">
-                        <button id="prev-button"><i class="fas fa-backward"></i></button>
-                        <button id="play-pause-button"><i class="fas fa-pause"></i></button>
-                        <button id="next-button"><i class="fas fa-forward"></i></button>
-                   </div>
-                   <progress class="bgm_bar blur_filter" id="progress-bar" value="0" max="100"></progress>
+
+                         <p class="bgm_time" id="remaining-time">0:00</p>
+                         <div class="controls ">
+                              <!-- blur_filter -->
+                              <button id="prev-button"><i class="fas fa-backward"></i></button>
+                              <button id="play-pause-button"><i class="fas fa-play"></i></button>
+                              <button id="next-button"><i class="fas fa-forward"></i></button>
+                         </div>
+                         <progress class="bgm_bar " id="progress-bar" value="0" max="100"></progress>
+                         <!-- blur_filter -->
+                    </div>
                </div>
-          </div>
-          <audio id="bgm-audio" controls autoplay loop preload="auto">
-              <source src="https://drive.google.com/uc?export=download&id=1vSh75ZgsL13W-xYVKVkgtLlv7d7usmQn" type="audio/mp3">
-          </audio>
-    </div>
-</div>
 
+               <audio id="bgm-audio" controls autoplay loop>
+                <!-- 경로때매 안되는듯? 체크필요 얘도 메인처럼 저폴더에서 실행돼야함 -->
+                    <source src="/bgm/DC_fire.mp3" type="audio/mp3">
+               </audio>
+          </div>
+     </div>
+
+     <!-- 0117 수정 끝 -->
 
 
     <main>
