@@ -377,7 +377,7 @@
 
 
           // |￣￣￣￣￣￣￣￣￣￣￣￣￣￣￣|
-          //     drag_box 2.BGM Playlist 
+          //     drag_box 2.BGM Playlist  0117 전체 수정
           // |＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿|
           //    \ (•◡•) /
 
@@ -399,15 +399,15 @@
                          /* 여기에서 block되면 재생 */
 
                          // 오디오 재생
-                         /* const audio = document.getElementById('bgm-audio');
-                         audio.play(); */
+                         const audio = document.getElementById('bgm-audio');
+                         audio.play();
                     } else {
                          $(".draggable_bgm").css("display", "none");
                          /* 여기에서 none되면 정지 */
 
                          // 오디오 정지
-                         /*   const audio = document.getElementById('bgm-audio');
-                           audio.pause(); */
+                           const audio = document.getElementById('bgm-audio');
+                           audio.pause();
                     }
                });
           });
@@ -416,9 +416,9 @@
 
           $(document).ready(function () {
                const audioPaths = {
-                    Bgm1_Fireplace: 'https://drive.google.com/uc?export=download&id=1vSh75ZgsL13W-xYVKVkgtLlv7d7usmQn',
-                    Bgm2_Rain: 'https://drive.google.com/uc?export=download&id=1rIWAJ-2cQPfl06OeKK4xF3mjCRRplJef',
-                    Bgm3_MxRedKeyboard: 'https://drive.google.com/uc?export=download&id=1C-DlO3EAyfCAZ_YNNvfUAuYHqA4-r1Sp',
+                    Bgm1_Fireplace: 'bgm/DC_fire.mp3',
+                    Bgm2_Rain: 'bgm/DC_rain.mp3',
+                    Bgm3_MxRedKeyboard: 'bgm/DC_hesper_Key_asmr.mp3',
                };
           
                // 음악 이름을 변경할 매핑 객체 생성
@@ -429,13 +429,21 @@
                };
           
                const audio = document.getElementById('bgm-audio');
-               const playPauseButton = document.getElementById('play-pause-button');
+    const playPauseButton = document.getElementById('play-pause-button');
+
+      // 오디오의 초기 상태를 확인하고 버튼 아이콘을 설정합니다.
+      if (audio.paused) {
+          playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+      } else {
+          playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+  
                const currentTrack = document.getElementById('current-track');
                const remainingTime = document.getElementById('remaining-time');
                const progressBar = document.getElementById('progress-bar');
                const volumeSlider = document.getElementById('volume-slider');
                const loading_ele = document.getElementById('loading_ele'); // 로딩요소
-               const blur_filter = $('.blur_filter'); // .blur_filter 요소
+               // const blur_filter = $('.blur_filter'); // .blur_filter 요소
           
                let currentTrackIndex = 0;
           
@@ -452,11 +460,10 @@
                function playNextTrack() {
                     currentTrackIndex = (currentTrackIndex + 1) % Object.keys(audioPaths).length;
                     updateTrackInfo();
-                    loading_ele.style.display = 'block'; // 로딩요소 표시
-                    blur_filter.css('filter', 'blur(5px)'); // blur_filter에 blur 효과 적용
+                    // loading_ele.style.display = 'block'; // 로딩요소 표시
+                    // blur_filter.css('filter', 'blur(5px)'); // blur_filter에 blur 효과 적용
                     audio.src = Object.values(audioPaths)[currentTrackIndex];
-                    audio.load();
-                    audio.play();
+                  
                }
           
                function updateRemainingTime() {
@@ -479,28 +486,28 @@
                audio.addEventListener('timeupdate', function () {
                     updateRemainingTime();
                     // 로딩이 완료되면 로딩요소 숨김
-                    if (audio.readyState === 4) {
-                         loading_ele.style.display = 'none';
-                         blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
-                    }
+                    // if (audio.readyState === 4) {
+                    //      loading_ele.style.display = 'none';
+                    //      blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
+                    // }
                });
           
                audio.addEventListener('canplay', function () {
                     updateTrackInfo();
-                    loading_ele.style.display = 'none'; // 로딩이 완료되면 로딩요소 숨김
-                    blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
+                    // loading_ele.style.display = 'none'; // 로딩이 완료되면 로딩요소 숨김
+                    // blur_filter.css('filter', 'none'); // blur_filter의 blur 효과 제거
                });
           
-               $('#play-pause-button').click(function () {
-                    if (audio.paused) {
-                         audio.play();
-                         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
-                    } else {
-                         audio.pause();
-                         playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
-                    }
-               });
-          
+              
+    $('#play-pause-button').click(function () {
+     if (audio.paused) {
+         audio.play();
+         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+     } else {
+         audio.pause();
+         playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+     }
+ });
                $('#prev-button').click(function () {
                     currentTrackIndex = (currentTrackIndex - 1 + Object.keys(audioPaths).length) % Object.keys(audioPaths).length;
                     updateTrackInfo();
